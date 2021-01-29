@@ -227,6 +227,11 @@ public class GUI_ComputeHashValue extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ---------------------", " MD2", " MD5", " SHA-1", " SHA-224", " SHA-256", " SHA-384", " SHA-512" }));
+        jComboBox1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jComboBox1FocusGained(evt);
+            }
+        });
         jComboBox1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jComboBox1MouseClicked(evt);
@@ -553,20 +558,35 @@ public class GUI_ComputeHashValue extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
-     *  This method is triggered every time the user clicks
-     *  into the "Hash Function" Selection JComboBox Component.
-     *  Creates a Separate Thread which executes the required 
-     *  background tasks while the main Event Queue Thread 
-     *  focuses on maintaining the overall look and feel 
-     *  of the GUI Form.
+     *  This method is triggered every time the user selects
+     *  a different index within "Hash Function" Selection JComboBox
+     *  Component. Creates a Separate Thread which executes the
+     *  required background tasks while the main Event Queue
+     *  Thread  focuses on maintaining the overall look and
+     *  feel of the GUI Form.
      * 
-     *  @param evt      The user action of clicking into the
-     *                  "Hash Function" Selection JComboBox.
+     *  @param evt      The user action of selecting an item in
+     *                  the "Hash Function" Selection JComboBox.
      */
     private void jComboBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox1MouseClicked
         // Create and Execute Background Thread.
         new TaskHandler(3).execute();
     }//GEN-LAST:event_jComboBox1MouseClicked
+
+    /**
+     *  This method is triggered every time the user clicks
+     *  into the "Hash Function" Selection JComboBox. Creates 
+     *  a Separate Thread which executes the required background
+     *  tasks while the main Event Queue Thread focuses on
+     *  maintaining the overall look and feel of the GUI Form.
+     * 
+     *  @param evt      The user action of clicking into the
+     *                  "Hash Algorithm" Selection Box.
+     */
+    private void jComboBox1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jComboBox1FocusGained
+        // Create and Execute Background Thread.
+        new TaskHandler(4).execute();
+    }//GEN-LAST:event_jComboBox1FocusGained
     
     /**
      *  This method is invoked in order to set the Visibility
@@ -1515,6 +1535,29 @@ public class GUI_ComputeHashValue extends javax.swing.JFrame {
                      *  Hidden from the User at the Bottom of the Form.
                      */
                     setErrorMessageVisibility(false);
+                    /**
+                     *  Break From Switch Condition and Terminate
+                     *  the new Thread.
+                     */
+                    break;
+                /**
+                 *  Executed Whenever the Hash Type Selection
+                 *  JComboBox Component gains Focus within the
+                 *  Form.
+                 */
+                case 4:
+                    /**
+                     *  Reset the Hash Display Value TextArea Component
+                     *  in case display text is preset from another
+                     *  Hash Calculation Process.
+                     */
+                    resetHashDisplayValue();
+                    /**
+                     *  Disable the Hash Display Components seeing as
+                     *  the user is selecting a different hashing
+                     *  Algorithm.
+                     */
+                    setHashDisplayComponentsEnablement(false);
                     /**
                      *  Break From Switch Condition and Terminate
                      *  the new Thread.
