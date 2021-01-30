@@ -18,6 +18,7 @@ Screenshots of the Application Functioning are shown below.
 
 ![Alt Text](FileHashGenerator/Screenshots/divider_line_neon.png)
 ![Alt Text](FileHashGenerator/Screenshots/Image_0.png)
+![Alt Text](FileHashGenerator/Screenshots/divider_line_neon.png)
 ![Alt Text](FileHashGenerator/Screenshots/Image_1.png)
 ![Alt Text](FileHashGenerator/Screenshots/divider_line_neon.png)
 ![Alt Text](FileHashGenerator/Screenshots/Image_2.png)
