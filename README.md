@@ -3,7 +3,8 @@ This Java Swing GUI Tool allows users to generate the unique Hash Value of a spe
 
 This Application Features Seven Different Hash Algorithm Formulas:
 
-- MD2 : 128-bit (32 Character) Message Digest 
+- MD2
+           - 128-bit (32 Character) Message Digest 
            Hash [For 8-bit Machines]
 - MD5      128-bit (32 Character) Message Digest 
            Hash [For 128-bit Machines]
